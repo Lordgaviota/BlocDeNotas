@@ -20,7 +20,7 @@ public class NotaService implements INotaService {
     @Override
     public NotaDTO queryNota(NotaDTO notaDTO) {
         Nota nota = NotaMapper.INSTANCE.toEntity(notaDTO);
-        return NotaMapper.INSTANCE.toDto(notaDAO.getReferenceById(nota.getId()));
+        return NotaMapper.INSTANCE.toDto(notaDAO.findByTitulo(nota.getTitulo()));
     }
 
     @Override
