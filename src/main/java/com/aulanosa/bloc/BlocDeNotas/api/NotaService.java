@@ -7,6 +7,7 @@ import com.aulanosa.bloc.BlocDeNotas.model.dto.dtomapper.NotaMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -41,10 +42,11 @@ public class NotaService implements INotaService {
     }
 
     @Override
+    @Transactional
     public int deleteNota(NotaDTO notaDTO) {
-        int id = notaDTO.getId();
-        Nota nota = NotaMapper.INSTANCE.toEntity(notaDTO);
-        notaDAO.delete(nota);
-        return id;
+        notaDAO.deleteByTitulo(notaDTO.getTitulo());
+        return 1;
+
     }
+
 }

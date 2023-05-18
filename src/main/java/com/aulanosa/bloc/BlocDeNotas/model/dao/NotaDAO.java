@@ -6,4 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface NotaDAO extends JpaRepository<Nota, Integer> {
 
     Nota findByTitulo(String titulo);
+
+    void deleteByTitulo(String titulo);
 }
