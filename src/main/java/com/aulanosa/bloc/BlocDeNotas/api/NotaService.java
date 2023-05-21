@@ -38,7 +38,8 @@ public class NotaService implements INotaService {
 
     @Override
     public int updateNota(NotaDTO notaDTO) {
-        return insertNota(notaDTO);
+        notaDAO.updateByTitulo(notaDTO.getTitulo());
+        return 1;
     }
 
     @Override
