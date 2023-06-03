@@ -37,10 +37,13 @@ public class NotaService implements INotaService {
     }
 
     @Override
+    @Transactional
     public int updateNota(NotaDTO notaDTO) {
-        notaDAO.updateByTitulo(notaDTO.getTitulo());
-        return 1;
+        Nota nota = NotaMapper.INSTANCE.toEntity(notaDTO);
+        notaDAO.updateByTitulo(nota.getTitulo(), nota.getDescripcion(), nota.getFecha());
+        return nota.getId();
     }
+
 
     @Override
     @Transactional
