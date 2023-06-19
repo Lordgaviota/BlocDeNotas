@@ -1,10 +1,10 @@
-package com.aulanosa.bloc.BlocDeNotas;
+package com.bloc.NoteBook;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class BlocDeNotasApplicationTests {
+class NoteBookApplicationTests {
 
 	@Test
 	void contextLoads() {
